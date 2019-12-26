@@ -1,0 +1,44 @@
+.list {
+  
+}
+
+.list-title {
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.list-element {
+  margin: 0.4em 0;
+}
+
+.pm-id, .pm-location, .pm-view {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.pm-id {
+  width: 25%;
+  text-align: right;
+  font-weight: bold;
+}
+
+.pm-location {
+  width: 50%;
+}
+
+.pm-view {
+  width: 25%;
+  text-align: left;
+  margin: 3px 0 0 0;
+}
+
+.pm-view button {
+  padding: 3px 15px;
+  border: 1px solid darkblue;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  color: darkblue;
+  font-size: 1em;
+}

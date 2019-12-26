@@ -1,0 +1,22 @@
+.search {
+  margin: 10px 20px;
+}
+
+.search-title {
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.search input {
+  width: 50%;
+  padding: 1em;
+  border: 1px solid lightgray;
+  border-radius: 30px;
+  outline: none;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.search input:focus {
+  border-color: darkblue;
+}

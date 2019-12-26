@@ -1,0 +1,12 @@
+.main {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.view-title {
+  font-weight: bold;
+}
+
+.view-location-challenge-description {
+  color: darkblue;
+}

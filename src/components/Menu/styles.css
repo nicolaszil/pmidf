@@ -1,0 +1,16 @@
+.menu {
+  margin: 3% 0;
+  text-align: center;
+}
+
+.menu button {
+  padding: 3px 15px;
+  margin: 0 1em;
+  border: 1px solid darkblue;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  color: darkblue;
+  font-size: 1em;
+}
