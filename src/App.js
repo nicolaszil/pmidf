@@ -1,6 +1,11 @@
 import React, { Component } from "react"
+import axios from "axios"
+
 import logo from "./logo.svg"
 import "./App.css"
+
+const port = 9000;
+const baseUrl = `http://${window.location.hostname}:${port}`;
 
 class LambdaDemo extends Component {
   constructor(props) {
@@ -8,13 +13,12 @@ class LambdaDemo extends Component {
     this.state = { loading: false, msg: null }
   }
 
-  handleClick = api => e => {
+  handleClick = endpoint => e => {
     e.preventDefault()
 
     this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
-      .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.msg }))
+    axios.get(`${baseUrl}/.netlify/functions/${endpoint}`)
+      .then(({ data }) => this.setState({ loading: false, msg: data.msg }))
   }
 
   render() {
@@ -23,7 +27,7 @@ class LambdaDemo extends Component {
     return (
       <p>
         <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
-        <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
+        <button onClick={this.handleClick("list")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
         <br />
         <span>{msg}</span>
       </p>

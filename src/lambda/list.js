@@ -1,5 +1,3 @@
-import axios from "axios"
-
 const responseHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers':
@@ -8,12 +6,25 @@ const responseHeaders = {
 
 export async function handler(event, context) {
   try {
-    const response = await axios.get("https://icanhazdadjoke.com", { headers: { Accept: "application/json" } })
-    const data = response.data
+    const pmList = [
+      {
+        id: 456,
+        location: 'Le Plessis Trévise',
+      },
+      {
+        id: 716,
+        location: 'Villiers',
+      },
+      {
+        id: 974,
+        location: 'Tremblay',
+      },
+    ];
+    
     return {
       headers: responseHeaders,
       statusCode: 200,
-      body: JSON.stringify({ msg: data.joke })
+      body: JSON.stringify({ msg: pmList[0].location }),
     }
   } catch (err) {
     console.log(err) // output to netlify function log
