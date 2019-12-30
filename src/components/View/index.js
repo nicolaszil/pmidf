@@ -7,6 +7,7 @@ import Menu from '../Menu';
 import './styles.css';
 
 const baseUrl = process.env.NODE_ENV !== 'production' ? `http://${window.location.hostname}:9000` : '';
+const netlifyPath = '/.netlify/functions';
 
 const View = ({ match: route }) => {
   const [location, setLocation] = useState({});
@@ -14,7 +15,7 @@ const View = ({ match: route }) => {
 
   useEffect(() => {
     (async () => {
-      await axios.get(`${baseUrl}/.netlify/functions/view`)
+      await axios.get(`${baseUrl}${netlifyPath}/view`)
       .then(({ data }) => {
         setLocation(data.location);
         setChallenge(data.challenge);

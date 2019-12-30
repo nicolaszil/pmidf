@@ -5,13 +5,14 @@ import axios from 'axios';
 import './styles.css';
 
 const baseUrl = process.env.NODE_ENV !== 'production' ? `http://${window.location.hostname}:9000` : '';
+const netlifyPath = '/.netlify/functions';
 
 const List = () => {
   const [pmList, setPmList] = useState([]);
 
   useEffect(() => {
     (async () => {
-      await axios.get(`${baseUrl}/.netlify/functions/list`)
+      await axios.get(`${baseUrl}${netlifyPath}/list`)
       .then(({ data }) => setPmList(data || []));
     })();
   }, []);
