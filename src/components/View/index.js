@@ -10,16 +10,13 @@ const baseUrl = process.env.NODE_ENV !== 'production' ? `http://${window.locatio
 const netlifyPath = '/.netlify/functions';
 
 const View = ({ match: route }) => {
-  const [location, setLocation] = useState({});
-  const [challenge, setChallenge] = useState();
+  const [PM, setPM] = useState({});
+  const { firstName, number, type, address, postCode, city, challenge } = PM;
 
   useEffect(() => {
     (async () => {
-      await axios.get(`${baseUrl}${netlifyPath}/view`)
-      .then(({ data }) => {
-        setLocation(data.location);
-        setChallenge(data.challenge);
-      });
+      await axios.get(`${baseUrl}${netlifyPath}/view?pmId=${route.params.pmId}`)
+      .then(({ data }) => setPM(data));
     })();
   }, []);
 
@@ -28,13 +25,19 @@ const View = ({ match: route }) => {
       <Header />
       <Menu />
 
-      <h1 className="view-title">PM {route.params.pmId}</h1>
+      <h1 className="view-title">PM {number || route.params.pmId}</h1>
+
+      <div className="view-location-challenge">
+        <h3 className="view-location-challenge-title">{'DETAILS'.toUpperCase()}</h3>
+        <div className="view-location-challenge-description">Type {type}</div>
+        <div className="view-location-challenge-description">Ajouté par {firstName}</div>
+      </div>
 
       <div className="view-address">
         <h3 className="view-address-title">{'Adresse'.toUpperCase()}</h3>
         <div className="view-address-description">
-          <div>{location.address}</div>
-          <div>{location.postCode} - {location.city}</div>
+          <div>{address}</div>
+          <div>{postCode} - {city}</div>
         </div>
       </div>
 

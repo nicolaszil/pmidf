@@ -23,10 +23,10 @@ const List = () => {
 
       {pmList.map((pm, index) =>
         <div className="list-element" key={index}>
-          <span className="pm-id">{pm.id}</span>
-          <span className="pm-location">{pm.location}</span>
+          <span className="pm-id">{pm.number}</span>
+          <span className="pm-location">{pm.city}</span>
 
-          <Link to={`/view-pm/${pm.id}`}>
+          <Link to={`/view-pm/${pm.number}`}>
             <span className="pm-view">
               <button>Voir</button>
             </span>

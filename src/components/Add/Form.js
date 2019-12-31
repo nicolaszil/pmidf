@@ -31,7 +31,7 @@ const Form = ({ history }) => {
   const handleValidate = () => {
     (async () => {
       try {
-        await axios.post(`${baseUrl}${netlifyPath}/create`, formData);
+        await axios.post(`${baseUrl}${netlifyPath}/create`, JSON.stringify(formData));
         history.push('/');
       } catch (err) {
         console.log('Une erreur est survenue', err.message);
