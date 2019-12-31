@@ -9,6 +9,12 @@ import './styles.css';
 const baseUrl = process.env.NODE_ENV !== 'production' ? `http://${window.location.hostname}:9000` : '';
 const netlifyPath = '/.netlify/functions';
 
+const challengesMapping = {
+  'easy': 'Facile',
+  'medium': 'Moyen',
+  'hard': 'Difficile',
+};
+
 const View = ({ match: route }) => {
   const [PM, setPM] = useState({});
   const { firstName, number, type, address, postCode, city, challenge } = PM;
@@ -43,7 +49,7 @@ const View = ({ match: route }) => {
 
       <div className="view-location-challenge">
         <h3 className="view-location-challenge-title">{'Difficulté de répérage'.toUpperCase()}</h3>
-        <div className="view-location-challenge-description">{challenge}</div>
+        <div className="view-location-challenge-description">{challengesMapping[challenge]}</div>
       </div>
 
       <div className="view-picture" />
