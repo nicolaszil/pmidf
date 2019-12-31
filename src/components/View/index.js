@@ -18,7 +18,7 @@ const View = ({ match: route }) => {
       await axios.get(`${baseUrl}${netlifyPath}/view?pmId=${route.params.pmId}`)
       .then(({ data }) => setPM(data));
     })();
-  }, []);
+  }, [route.params.pmId]);
 
   return (
     <div className="main">

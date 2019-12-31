@@ -14,9 +14,9 @@ const Menu = ({ match: route }) => {
       </Link>}
 
       {route.path !== ROUTES.ADD && <Link to="/add-pm">
-        <a className="w3-button w3-large w3-circle w3-indigo" style={{ 'z-index': 0 }}>
+        <button className="w3-button w3-large w3-circle w3-indigo" style={{ 'zIndex': 0 }}>
           +
-        </a>
+        </button>
       </Link>}
     </div>
   );

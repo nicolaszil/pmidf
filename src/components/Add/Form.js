@@ -49,7 +49,7 @@ const Form = ({ history }) => {
         <div className="w3-container w3-padding">
           <div className="w3-quarter w3-container" />
           <div className="w3-half w3-container">
-            <input type="text" name="firstName" placeholder="Votre prénom" className="w3-input" onChange={handleChange} value={firstName} />
+            <input type="text" name="firstName" placeholder="Votre prénom" className="w3-input" onChange={handleChange} value={firstName || ''} />
           </div>
           <div className="w3-quarter w3-container" />
         </div>
@@ -57,7 +57,7 @@ const Form = ({ history }) => {
         <div className="w3-container w3-padding">
           <div className="w3-quarter w3-container" />
           <div className="w3-half w3-container">
-            <input type="number" name="number" placeholder="N° PM" className="w3-input" onChange={handleChange} value={number} />
+            <input type="number" name="number" placeholder="N° PM" className="w3-input" onChange={handleChange} value={number || ''} />
           </div>
           <div className="w3-quarter w3-container" />
         </div>
@@ -80,7 +80,7 @@ const Form = ({ history }) => {
         <div className="w3-container w3-padding">
           <div className="w3-quarter w3-container" />
           <div className="w3-half w3-container">
-            <input type="text" name="address" placeholder="Adresse (numéro et rue)" className="w3-input" onChange={handleChange} value={address} />
+            <input type="text" name="address" placeholder="Adresse (numéro et rue)" className="w3-input" onChange={handleChange} value={address || ''} />
           </div>
           <div className="w3-quarter w3-container" />
         </div>
@@ -88,7 +88,7 @@ const Form = ({ history }) => {
         <div className="w3-container w3-padding">
           <div className="w3-quarter w3-container" />
           <div className="w3-half w3-container">
-            <input type="number" name="postCode" placeholder="Code postal" className="w3-input" onChange={handleChange} value={postCode} />
+            <input type="number" name="postCode" placeholder="Code postal" className="w3-input" onChange={handleChange} value={postCode || ''} />
           </div>
           <div className="w3-quarter w3-container" />
         </div>
@@ -96,7 +96,7 @@ const Form = ({ history }) => {
         <div className="w3-container w3-padding">
           <div className="w3-quarter w3-container" />
           <div className="w3-half w3-container">
-            <input type="text" name="city" placeholder="Ville" className="w3-input" onChange={handleChange} value={city} />
+            <input type="text" name="city" placeholder="Ville" className="w3-input" onChange={handleChange} value={city || ''} />
           </div>
           <div className="w3-quarter w3-container" />
         </div>
@@ -104,8 +104,8 @@ const Form = ({ history }) => {
         <div className="w3-container w3-padding">
           <div className="w3-quarter w3-container" />
           <div className="w3-half w3-container">
-            <select class="w3-select" name="challenge" onChange={handleChange} value={challenge}>
-              <option value="" disabled selected>Niveau de difficulté à trouver</option>
+            <select className="w3-select" name="challenge" onChange={handleChange} value={challenge || 'top'}>
+              <option value="top" disabled>Niveau de difficulté à trouver</option>
               <option value="easy">Facile</option>
               <option value="medium">Moyen</option>
               <option value="hard">Difficile</option>
